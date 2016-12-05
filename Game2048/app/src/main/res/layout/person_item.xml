@@ -4,20 +4,39 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/position"/>
+        android:layout_weight="1"
+        android:id="@+id/position"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/bg1"/>
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="40dp"
+        android:background="@mipmap/head"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
   <TextView
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
+      android:layout_weight="4"
       android:layout_height="wrap_content"
-      android:id="@+id/username"/>
+      android:id="@+id/username"
+      android:textSize="20dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="10dp"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:id="@+id/highScore"/>
+        android:layout_weight="4"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/highScore"
+        android:textSize="20dp"/>
 </LinearLayout>
