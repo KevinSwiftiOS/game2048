@@ -13,13 +13,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class RegisterActivity extends Activity {
       private EditText usernameEditText;
       private EditText passwordEditText;
       private EditText configPasswordEditText;
       private String username,password,configPassword;
+    private TextView link_login;
       //注册按钮
     private Button registerBtn;
     //数据库使用
@@ -33,6 +37,16 @@ public class RegisterActivity extends Activity {
         configPasswordEditText = (EditText)findViewById(R.id.configPassword);
         registerBtn = (Button) findViewById(R.id.register);
         dbhelper = new MyDatabaseHelper(this,"Person.db",null,1);
+        //回退事件
+        link_login = (TextView)findViewById(R.id.link_login);
+        link_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
         //点击事件
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +70,9 @@ public class RegisterActivity extends Activity {
                              dialog.setCancelable(false);
                              dialog.setPositiveButton("确定", null);
                              dialog.show();
+                             //播放背景音乐
+                             Intent musicService = new Intent(RegisterActivity.this,MusicService.class);
+                             startService(musicService);
                              //到mainActivity中
                              Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                              intent.putExtra("username", username);

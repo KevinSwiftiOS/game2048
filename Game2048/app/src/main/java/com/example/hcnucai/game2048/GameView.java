@@ -203,6 +203,7 @@ public class GameView extends GridLayout {
                             MainActivity.getMainActivity().addScore(cardsMap[x][y].getNum());
                             totalScore += cardsMap[x][y].getNum();
                             merge = true;
+
                         }
 
                         break;

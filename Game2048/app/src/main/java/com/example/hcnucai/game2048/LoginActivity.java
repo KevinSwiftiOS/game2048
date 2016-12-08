@@ -1,5 +1,11 @@
 package com.example.hcnucai.game2048;
-
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.IBinder;
+import android.widget.Toast;
+import android.os.Binder;
+import android.os.IBinder;
 
 import android.app.Activity;
 
@@ -7,6 +13,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +28,7 @@ public class LoginActivity extends Activity {
     private  EditText passwordEditText;
     private  String username,password;
     private  Button loginBtn;
-    private  Button registerBtn;
+    private  TextView register;
     //数据库使用
     private MyDatabaseHelper dbhelper;
     @Override
@@ -31,9 +39,9 @@ public class LoginActivity extends Activity {
         usernameEditText = (EditText)findViewById(R.id.username);
         passwordEditText = (EditText)findViewById(R.id.password);
         loginBtn = (Button)findViewById(R.id.login);
-        registerBtn = (Button)findViewById(R.id.register);
+        register = (TextView)findViewById(R.id.register);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             //注册
             public void onClick(View view) {
@@ -54,6 +62,8 @@ public class LoginActivity extends Activity {
                     String dataBasePassword = cursor.getString(cursor.getColumnIndex("password"));
                     if(dataBasePassword.equals(password)) {
                         //登录成功
+                        Intent musicService = new Intent(LoginActivity.this,MusicService.class);
+                        startService(musicService);
                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                         intent.putExtra("username",username);
                         startActivity(intent);
@@ -75,7 +85,9 @@ public class LoginActivity extends Activity {
                     dialog.setPositiveButton("确定",null);
                     dialog.show();
                 }
-            }
-        });
+           }
+       });
     }
+
+
 }

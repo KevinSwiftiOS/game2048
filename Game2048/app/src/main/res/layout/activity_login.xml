@@ -1,81 +1,66 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/blue"
-    tools:context="com.example.hcnucai.game2048.LoginActivity"
-    tools:ignore="MergeRootFrame" >
-    <ImageView
-        android:layout_marginTop="50px"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@mipmap/bg2"
-        android:layout_gravity="center"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
 
-        />
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@mipmap/bg2"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_marginLeft="50dp"
-            android:textSize="20dp"
-            android:text="用户名"/>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="8"
+
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="用户名" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入用户名"
-            android:layout_marginRight="50dp"
-            android:id="@+id/username"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="密码"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_marginLeft="50dp"
-            android:textSize="20dp"
-            android:text="密码"/>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="登录"/>
+
+        <TextView android:id="@+id/register"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入密码"
-            android:layout_marginRight="50dp"
-            android:inputType="textPassword"
-            android:id="@+id/password"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:layout_marginLeft="50dp"
-            android:text="登录"
-            android:id="@+id/login"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:layout_marginRight="50dp"
-            android:text="注册"
-            android:id="@+id/register"/>
+            android:layout_marginBottom="24dp"
+            android:text="还没有账号?"
+            android:gravity="center"
+            android:textSize="16dip"/>
 
     </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

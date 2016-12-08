@@ -107,12 +107,23 @@
         android:id="@+id/gameView" >
 
     </com.example.hcnucai.game2048.GameView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:textSize="32dp"
-            android:layout_gravity="center_horizontal"
-            android:text="广告"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/music"
+        android:id="@+id/playBackMusic"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/volume"
+        android:id="@+id/crashBtn"/>
     </LinearLayout>
 </LinearLayout>

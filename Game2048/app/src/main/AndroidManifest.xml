@@ -20,16 +20,25 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Dark"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".RegisterActivity" android:theme="@style/AppTheme.Dark"/>
         <activity android:name=".RankActivity"></activity>
+
+        <service
+            android:enabled="true"
+            android:name="com.example.hcnucai.game2048.MusicService" />
+        <service
+            android:enabled="true"
+            android:name="com.example.hcnucai.game2048.CrashMusicService" />
     </application>
 
 </manifest>

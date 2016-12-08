@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.hcnucai.game2048.R;
+
+import java.io.IOException;
+
 public class MainActivity extends Activity {
     //分数
     private int score = 0;
@@ -38,9 +41,39 @@ public class MainActivity extends Activity {
     private TextView highScoreTextView;
     //查看得分榜
     private  Button rankBtn;
+    //背景音乐的按钮
+    private  Button backMusicBtn;
+    //撞击声音的添加
+    private Button crashMusicBtn;
+    private boolean isPlayCrash = true;
+    private boolean isPlay = true;
+    private Intent musicService;
+    private Intent backGroundService;
+    //音乐播放器
+   private MediaPlayer mediaPlayer = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        backGroundService = new Intent(MainActivity.this,MusicService.class);
+        mediaPlayer = MediaPlayer.create(this, R.raw.merge);
+        if(mediaPlayer == null){
+            return;
+        }
+        mediaPlayer.stop();
+        mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                mp.release();
+                return false;
+            }
+        });
+        try{
+            mediaPlayer.prepare();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
         setContentView(R.layout.activity_main);
         gameView = (GameView)findViewById(R.id.gameView);
 
@@ -77,8 +110,28 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+       backMusicBtn = (Button)findViewById(R.id.playBackMusic);
+        backMusicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isPlay){
+                    isPlay = false;
 
-
+                    stopService(backGroundService);
+                }else{
+                    isPlay = true;
+                    startService(backGroundService);
+                }
+            }
+        });
+        crashMusicBtn = (Button)findViewById(R.id.crashBtn);
+    crashMusicBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            //撞击声音是否有
+            isPlayCrash = !isPlayCrash;
+        }
+    });
     }
 
 
@@ -91,9 +144,17 @@ public class MainActivity extends Activity {
     public void showScore(){
 
         tvScore.setText(score+"");
+  mediaPlayer.stop();
+
     }
 //增加分数
     public void addScore(int s){
+
+
+        if(isPlayCrash){
+            
+
+        }
         score+=s;
         showScore();
     }
