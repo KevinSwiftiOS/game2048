@@ -14,7 +14,6 @@ import java.io.IOException;
  */
 public class CrashMusicService extends Service {
     private MediaPlayer mediaPlayer = null;
-
     private boolean isReady = false;
 
     @Override

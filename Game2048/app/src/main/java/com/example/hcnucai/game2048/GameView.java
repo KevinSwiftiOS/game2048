@@ -171,19 +171,10 @@ public class GameView extends GridLayout {
 ///上下左右逻辑相同 只需注释一个即可
     private void swipeLeft(){
         //数据库插入
-
-
-
-
-
-
-
-                //判断是合并了 还是移动位置了 这时候就要产生新的数
+        //判断是合并了 还是移动位置了 这时候就要产生新的数
         boolean merge = false;
-
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-
                 for (int x1 = x+1; x1 < 4; x1++) {
                     //访问到当前有一个大于0的数
                     if (cardsMap[x1][y].getNum()>0) {
@@ -378,9 +369,6 @@ public class GameView extends GridLayout {
                   @Override
                   public void onClick(DialogInterface dialog, int which) {
                       startGame();
-
-
-
                   }
               }).show();
           }

@@ -17,8 +17,7 @@ public class Card extends FrameLayout {
         label = new TextView(getContext());
         label.setTextSize(40);
         label.setTextColor(Color.parseColor("#FFFFFF"));
-
-     //   label.setBackgroundColor((0xffbbada0));
+        //   label.setBackgroundColor((0xffbbada0));
         //设置背景颜色
       // label.setBackgroundColor(0x33ffffff);
         //设置字体在布局中的位置为center
@@ -30,13 +29,9 @@ public class Card extends FrameLayout {
         label.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
        //将view增加到layout中
         addView(label, lp);
-
         setNum(0);
     }
-
-
     private int num = 0;
-
     public int getNum() {
         return num;
     }
@@ -87,8 +82,6 @@ public class Card extends FrameLayout {
                     break;
                 default:break;
             }
-
-
         }
     }
     //判断卡片中的参数是否相同 card判断相同时合并要用

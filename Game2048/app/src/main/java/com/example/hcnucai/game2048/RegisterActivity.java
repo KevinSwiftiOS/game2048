@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
-
 public class RegisterActivity extends Activity {
       private EditText usernameEditText;
       private EditText passwordEditText;
@@ -86,7 +85,6 @@ public class RegisterActivity extends Activity {
                         dialog.setPositiveButton("确定",null);
                         dialog.show();
                     }
-
                 }else{
                     //提醒用户输入不相同
                     AlertDialog.Builder dialog = new AlertDialog.Builder(RegisterActivity.this);
