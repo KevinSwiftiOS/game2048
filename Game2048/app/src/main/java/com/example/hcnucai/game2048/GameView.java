@@ -153,7 +153,6 @@ public class GameView extends GridLayout {
     private void addRandomNum(){
  //用一个list来记录到底哪里需要显示出来值 哪里不需要
         emptyPoints.clear();
-
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 if (cardsMap[x][y].getNum()<=0) {
@@ -182,9 +181,8 @@ public class GameView extends GridLayout {
                         if (cardsMap[x][y].getNum()<=0) {
                             cardsMap[x][y].setNum(cardsMap[x1][y].getNum());
                             cardsMap[x1][y].setNum(0);
-
+                           //有可能该数可以进行合并
                             x--;
-
                             merge = true;
                             //两个值相同 可以合并
                         }else if (cardsMap[x][y].equals(cardsMap[x1][y])) {

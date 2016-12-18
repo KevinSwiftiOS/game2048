@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
      //加载声音
-      soundId = soundPool.load(this,R.raw.merge,1);
+       soundId = soundPool.load(this,R.raw.merge,1);
         //为声音池设定加载完成的监听事件
        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
            @Override
@@ -112,7 +112,9 @@ public class MainActivity extends Activity {
                 if(isPlay){
                     isPlay = false;
                     stopService(backGroundService);
+                    backMusicBtn.setBackgroundResource(R.mipmap.removemusic);
                 }else{
+                    backMusicBtn.setBackgroundResource(R.mipmap.music);
                     isPlay = true;
                     startService(backGroundService);
                 }
@@ -125,6 +127,10 @@ public class MainActivity extends Activity {
         public void onClick(View view) {
             //撞击声音是否有
             isPlayCrash = !isPlayCrash;
+            if(isPlayCrash)
+                crashMusicBtn.setBackgroundResource(R.mipmap.volume);
+            else
+                crashMusicBtn.setBackgroundResource(R.mipmap.removevolume);
         }
     });
     }
